@@ -1,0 +1,227 @@
+[gd_scene load_steps=24 format=3 uid="uid://dxgnkoaj56r0w"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_8qipf"]
+[ext_resource type="Texture2D" uid="uid://bl3mhi4fr88af" path="res://assets/ui/background_main.png" id="1_unv51"]
+[ext_resource type="FontFile" uid="uid://c5dcxjqvo6xpu" path="res://assets/fonts/SAOUITT-Regular.ttf" id="2_0yf68"]
+[ext_resource type="Texture2D" uid="uid://dx8b1e1xc5x27" path="res://assets/ui/Karya_pressed.png" id="3_vb01t"]
+[ext_resource type="Texture2D" uid="uid://t5d12pos0jub" path="res://assets/ui/Karya.png" id="4_xf5ck"]
+[ext_resource type="Texture2D" uid="uid://bxkrdfj8usc1v" path="res://assets/ui/Guide_pressed.png" id="5_yrjx8"]
+[ext_resource type="Texture2D" uid="uid://bh85u8pox6iv0" path="res://assets/ui/Guide.png" id="6_0yhm6"]
+[ext_resource type="Texture2D" uid="uid://63w7wrwp5x0f" path="res://assets/ui/About_pressed.png" id="7_l4mgg"]
+[ext_resource type="Texture2D" uid="uid://dio62v4ugdl6e" path="res://assets/ui/About.png" id="8_trs27"]
+[ext_resource type="Texture2D" uid="uid://cc7s53lb0u1k8" path="res://assets/ui/Exit_pressed.png" id="9_0e4qq"]
+[ext_resource type="Texture2D" uid="uid://b6qn1ltmjr5xi" path="res://assets/ui/Exit.png" id="10_34apv"]
+[ext_resource type="AudioStream" uid="uid://e8q4cn7w0pgr" path="res://assets/sounds/button-click.mp3" id="10_kf6mq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yciyl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2hwc"]
+texture = ExtResource("3_vb01t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wimoq"]
+texture = ExtResource("4_xf5ck")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbtvs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ulatp"]
+texture = ExtResource("5_yrjx8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48t1l"]
+texture = ExtResource("6_0yhm6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_26vki"]
+texture = ExtResource("7_l4mgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xtysv"]
+texture = ExtResource("8_trs27")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ng0y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r767w"]
+texture = ExtResource("9_0e4qq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfd8s"]
+texture = ExtResource("10_34apv")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qipf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_unv51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -264.0
+offset_right = 140.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Karya1Btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_0yf68")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yciyl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wimoq")
+text = "                   Motif"
+alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Karya1Btn"]
+stream = ExtResource("10_kf6mq")
+
+[node name="Karya2Btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_0yf68")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yciyl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wimoq")
+text = "                   Animasi"
+alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Karya2Btn"]
+stream = ExtResource("10_kf6mq")
+
+[node name="Karya3Btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_0yf68")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yciyl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wimoq")
+text = "                   Animasi Berwarna"
+alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Karya3Btn"]
+stream = ExtResource("10_kf6mq")
+
+[node name="Karya4Btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_0yf68")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yciyl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g2hwc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wimoq")
+text = "                   Animasi Interaksi"
+alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Karya4Btn"]
+stream = ExtResource("10_kf6mq")
+
+[node name="GuideBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_0yf68")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lbtvs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ulatp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ulatp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ulatp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_48t1l")
+text = "                   Guide"
+alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/GuideBtn"]
+stream = ExtResource("10_kf6mq")
+
+[node name="AboutBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_0yf68")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_26vki")
+theme_override_styles/hover = SubResource("StyleBoxTexture_26vki")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_26vki")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xtysv")
+text = "                   About"
+alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/AboutBtn"]
+stream = ExtResource("10_kf6mq")
+
+[node name="ExitBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(280, 72.11)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_0yf68")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ng0y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_r767w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r767w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r767w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lfd8s")
+text = "                   Exit"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Karya1Btn" to="." method="_on_karya1Btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Karya2Btn" to="." method="_on_karya2Btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Karya3Btn" to="." method="_on_karya3Btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Karya4Btn" to="." method="_on_karya4Btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GuideBtn" to="." method="_on_guideBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/AboutBtn" to="." method="_on_aboutBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitBtn" to="." method="_on_exitBtn_pressed"]

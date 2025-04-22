@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://smfnt55vbqml"]
+
+[ext_resource type="Texture2D" uid="uid://chtqhipevw0hi" path="res://assets/ui/No_on.png" id="1_ae5xm"]
+[ext_resource type="Script" path="res://scripts/Karya2.cs" id="1_wim6x"]
+[ext_resource type="Texture2D" uid="uid://vja4i5wfqscb" path="res://assets/ui/No.png" id="2_vy88n"]
+[ext_resource type="Script" path="res://scripts/karya_btn.cs" id="3_3lhfv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5al6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1mtm"]
+texture = ExtResource("1_ae5xm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cyu1s"]
+texture = ExtResource("2_vy88n")
+
+[node name="062Motif2dAnimasi" type="Node2D"]
+script = ExtResource("1_wim6x")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 58.0
+offset_bottom = 55.0
+
+[node name="Button" type="Button" parent="Control"]
+custom_minimum_size = Vector2(40.42, 41.42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.21
+offset_top = -20.71
+offset_right = 20.21
+offset_bottom = 20.71
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5al6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_x1mtm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x1mtm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x1mtm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cyu1s")
+script = ExtResource("3_3lhfv")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_backBtn_pressed"]
