@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using KG2025.Utils;
+using KG2025.Components.Motifs;
 
 namespace KG2025.Components.AnimatedMotifs
 {
@@ -11,6 +12,9 @@ namespace KG2025.Components.AnimatedMotifs
         private KartesiusSystem kartesiusSystem;
         private Color outlineColor = Colors.White;
 
+        // Reference to KolintangMotif for using its DrawMallet function
+        private KolintangMotif kolintangMotif;
+
         // Animation properties
         private List<float> barAnimations = new List<float>(); // Track animation state for each bar
         private List<bool> barIsAnimating = new List<bool>(); // Track which bars are currently animating
@@ -19,11 +23,11 @@ namespace KG2025.Components.AnimatedMotifs
         private List<int> targetBarIndices = new List<int>(); // Which bars are being targeted
 
         // Animation parameters
-        private float animationSpeed = 8.0f; // Increased from 5.0f for even faster vibration
+        private float animationSpeed = 8.0f; // Increased for faster vibration
         private float maxBarDisplacement = 4.0f;
         private float horizontalVibrationAmount = 2.5f;
-        private float vibrationFrequency = 10.0f; // Increased from 8.0f for faster vibration cycles
-        private float malletSpeed = 1.2f; // Doubled from 0.6f for much faster mallet movement
+        private float vibrationFrequency = 10.0f; // Faster vibration cycles
+        private float malletSpeed = 1.2f; // Faster mallet movement
 
         // Sequential animation parameters
         private bool isSequentialAnimation = true;
@@ -55,6 +59,10 @@ namespace KG2025.Components.AnimatedMotifs
             this.rightWidth = rightWidth;
             this.totalLength = length;
 
+            // Initialize the KolintangMotif reference
+            this.kolintangMotif = new KolintangMotif(parent, kartesiusSystem);
+            this.kolintangMotif.SetColors(outlineColor, new Color("#513822"));
+
             // Initialize animation state for each bar
             for (int i = 0; i < numberOfBars; i++)
             {
@@ -78,6 +86,8 @@ namespace KG2025.Components.AnimatedMotifs
         public void SetColors(Color outlineColor)
         {
             this.outlineColor = outlineColor;
+            // Also update the color in KolintangMotif
+            this.kolintangMotif.SetColors(outlineColor, new Color("#513822"));
         }
 
         public void Update(float delta)
@@ -262,8 +272,7 @@ namespace KG2025.Components.AnimatedMotifs
                 float baseHeight = leftWidth + progress * (rightWidth - leftWidth);
                 float barHeight = baseHeight + barExtension * 2;
 
-                // Apply vibration effect - combine vertical and horizontal vibrations 
-                // with higher frequency for more realistic vibration
+                // Apply vibration effect - combine vertical and horizontal vibrations
                 float verticalDisplacement = 0;
                 float horizontalDisplacement = 0;
                 if (barIsAnimating[i])
@@ -378,30 +387,9 @@ namespace KG2025.Components.AnimatedMotifs
                     lastMalletPositions[i] = new Vector2(targetBarX, targetY);
                 }
 
-                // Draw the mallet
-                DrawMallet(malletX, malletY);
+                // Draw the mallet using KolintangMotif's implementation
+                kolintangMotif.DrawMallet(malletX, malletY);
             }
-        }
-
-        // Draw a mallet (pemukul) for the kolintang
-        private void DrawMallet(float x, float y)
-        {
-            // Mallet head parameters
-            float headRadius = 68f / 2f;
-            float handleWidth = 7f;
-            float handleHeight = 120f;
-
-            // Position handle BELOW the head (fix the inverted orientation)
-            float handleX = x - handleWidth / 2;
-            float handleY = y + headRadius; // Start from bottom of head
-
-            // Draw handle outline
-            DrawLine(handleX, handleY, handleX, handleY + handleHeight, outlineColor); // Left vertical
-            DrawLine(handleX + handleWidth, handleY, handleX + handleWidth, handleY + handleHeight, outlineColor); // Right vertical
-            DrawLine(handleX, handleY + handleHeight, handleX + handleWidth, handleY + handleHeight, outlineColor); // Bottom line
-
-            // Draw head outline (circle)
-            DrawCircleOutline(x, y, headRadius, outlineColor);
         }
 
         // Draw outline of a rounded rectangle

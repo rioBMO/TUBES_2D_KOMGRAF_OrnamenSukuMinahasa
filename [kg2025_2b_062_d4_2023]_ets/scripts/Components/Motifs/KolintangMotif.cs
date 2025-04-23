@@ -69,19 +69,12 @@ namespace KG2025.Components.Motifs
 			// Draw the mallets if they should be shown
 			if (showMallets)
 			{
-				// NEW PLACEMENT: Position mallets to the left and right of the kolintang
-				// Left mallet - place it at the left edge of the kolintang
 				float leftMalletX = leftX - 100; // 100 pixels to the left of the kolintang
-												 // Right mallet - place it at the right edge of the kolintang
 				float rightMalletX = rightX + 100; // 100 pixels to the right of the kolintang
 
 				// Place both mallets at the vertical center
 				DrawMallet(leftMalletX, centerY);
 				DrawMallet(rightMalletX, centerY);
-
-				// Debug output
-				GD.Print($"Drawing left mallet at: ({leftMalletX}, {centerY})");
-				GD.Print($"Drawing right mallet at: ({rightMalletX}, {centerY})");
 			}
 		}
 
@@ -102,20 +95,17 @@ namespace KG2025.Components.Motifs
 			// Draw the mallets exactly as in AnimatedKolintangMotif
 			DrawMallet(leftMalletX, centerY);
 			DrawMallet(rightMalletX, centerY);
-
-			// Debug output for debugging - remove in production
-			GD.Print($"Drawing mallets at: ({leftMalletX}, {centerY}) and ({rightMalletX}, {centerY})");
 		}
 
 		// Draw a single mallet - EXACT MATCH with AnimatedKolintangMotif implementation
-		private void DrawMallet(float x, float y)
+		public void DrawMallet(float x, float y)
 		{
 			// Mallet head parameters
 			float headRadius = 68f / 2f;
 			float handleWidth = 7f;
 			float handleHeight = 120f;
 
-			// Position handle BELOW the head (fix the inverted orientation)
+			// Position handle BELOW the head
 			float handleX = x - handleWidth / 2;
 			float handleY = y + headRadius; // Start from bottom of head
 
